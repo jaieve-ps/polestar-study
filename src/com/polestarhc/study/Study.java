@@ -21,8 +21,18 @@ public class Study {
     private String seriesInstanceUid;
     private String seriesComment;
     private String imageNumber;
+    private String threadId;
+
 
     public Study() {
+    }
+
+    public void setThreadId(String threadId){
+        this.threadId = threadId;
+    }
+
+    public String getThreadId() {
+        return threadId;
     }
 
     public String getStudyUid() {
@@ -174,22 +184,7 @@ public class Study {
         return "Study{" +
                 "studyUid='" + studyUid + '\'' +
                 ", patiendId='" + patiendId + '\'' +
-                ", seriesNumber='" + seriesNumber + '\'' +
-                ", seriesDateTime=" + seriesDateTime +
-                ", seriesdesc='" + seriesdesc + '\'' +
-                ", modality='" + modality + '\'' +
-                ", bodypart='" + bodypart + '\'' +
-                ", section='" + section + '\'' +
                 ", patientName='" + patientName + '\'' +
-                ", Sex='" + Sex + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", accessionNo='" + accessionNo + '\'' +
-                ", WorkcompanyName='" + WorkcompanyName + '\'' +
-                ", aeTitle='" + aeTitle + '\'' +
-                ", physicianComment='" + physicianComment + '\'' +
-                ", seriesInstanceUid='" + seriesInstanceUid + '\'' +
-                ", seriesComment='" + seriesComment + '\'' +
-                ", imageNumber='" + imageNumber + '\'' +
                 '}';
     }
 }

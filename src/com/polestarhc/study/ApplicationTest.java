@@ -8,13 +8,23 @@ public class ApplicationTest {
 
         for (int i = 0; i < 1000; i++) {
             Study study = new Study();
-            study.setPatiendId("S"+String.valueOf(i+1));
-            study.setStudyUid(String.valueOf(i+1));
+            study.setPatiendId("P"+String.valueOf(i));
+            study.setPatientName("홍길동");
             studyList.add(study);
         }
 
-        for (Study study : studyList) {
-            System.out.println(study.toString());
-        }
+        ThreadTest1 threadTest1 = new ThreadTest1(studyList);
+        ThreadTest2 threadTest2 = new ThreadTest2(studyList);
+
+        Thread thread1 = new Thread(threadTest1);
+        Thread thread2 = new Thread(threadTest2);
+
+        // 아래의 코드는 위와 똑같은 결과를 보인다.
+//        Thread thread1 = new Thread(new ThreadTest1(studyList));
+//        Thread thread2 = new Thread(new ThreadTest2(studyList));
+
+        thread1.start();
+        thread2.start();
+
     }
 }
