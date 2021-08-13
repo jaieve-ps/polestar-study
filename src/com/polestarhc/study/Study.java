@@ -182,8 +182,7 @@ public class Study {
     @Override
     public String toString() {
         return "Study{" +
-                "studyUid='" + studyUid + '\'' +
-                ", patiendId='" + patiendId + '\'' +
+                "patiendId='" + patiendId + '\'' +
                 ", patientName='" + patientName + '\'' +
                 '}';
     }

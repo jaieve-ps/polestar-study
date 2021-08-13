@@ -26,5 +26,9 @@ public class ApplicationTest {
         thread1.start();
         thread2.start();
 
+//        System.out.println("스레드 종료");
+        // thread.start(); // 진짜 스레드가 생성이 되고, 해당 스레드에 실린 것이 스레드로 실행되는 것.
+        // thread.run(); // JVM이 객체를 실행시키는 것. != 스레드 호출
+
     }
 }

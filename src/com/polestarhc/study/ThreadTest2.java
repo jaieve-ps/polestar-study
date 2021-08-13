@@ -12,9 +12,17 @@ class ThreadTest2 implements Runnable{
     @Override
     public void run() {
         studyList = this.studyList;
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
+            int index = studyList.size() - i;
             Study study = studyList.get(i);
-            System.out.println("[B]"+study.toString());
+            study.setPatiendId(String.valueOf(index)+"B");
+            study.setPatientName(study.getPatientName()+"B");
+            System.out.println(study.toString());
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
