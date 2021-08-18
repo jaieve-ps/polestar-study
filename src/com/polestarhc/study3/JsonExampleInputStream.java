@@ -1,14 +1,15 @@
 package com.polestarhc.study3;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.polestarhc.study.Study;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class JsonExampleInputStream {
@@ -20,8 +21,7 @@ public class JsonExampleInputStream {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-//        jsonExample.readFile("jsonTest.json");
-        jsonExample.readFile("fr.txt");
+        jsonExample.readFile("jsonTest.json");
     }
 
     private void writeFile(String path) throws JsonProcessingException {
@@ -40,8 +40,8 @@ public class JsonExampleInputStream {
 
         int maximum = 100;
         List<Study> studyList = new ArrayList<Study>();
-        Study study = new Study();
         for (int i = 0; i < maximum;i++) {
+            Study study = new Study();
             study.setPatiendId("S" + i);
             study.setPatientName("이재용");
             studyList.add(study);
@@ -59,24 +59,31 @@ public class JsonExampleInputStream {
     }
     private void readFile(String path) {
         FileInputStream fis = null;
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonMapper jsonMapper = new JsonMapper();
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         try {
-            FileOutputStream fos = new FileOutputStream(new File("isJson.json"));
-            fis = new FileInputStream(new File("textFiles/"+path));
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            fis = new FileInputStream("textFiles/"+path);
             BufferedInputStream bis = new BufferedInputStream(fis);
             int data = 0;
-            byte[] buf = new byte[8];
-            String obj = null;
+            byte[] buf = new byte[bis.available()];
             while((data=bis.read(buf))!=-1) {
-                System.out.println("byte size: " + data+ ", data: " + new String(buf,"utf-8"));
+                System.out.println("byte size: " + data+ ", data: " + new String(buf));
             }
             fis.close();
             bis.close();
+            // byte[] -> List<study>
+            List<Study> studyListGot= objectMapper.readValue(buf, new TypeReference<>() {
+            });
+            System.out.println(studyListGot.getClass()); //ArrayList
+            System.out.println(studyListGot.get(0).getClass()); // Study
+            // print study instance to console
+            for (Study study:studyListGot) {
+                System.out.println(study.toString());
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        ObjectMapper objectMapper = new ObjectMapper();
-//        Study study = objectMapper.readValue(studyJson, Study.class);
     }
 }

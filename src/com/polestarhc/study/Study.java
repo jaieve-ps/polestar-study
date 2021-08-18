@@ -1,7 +1,10 @@
 package com.polestarhc.study;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.time.LocalDateTime;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Study {
     private String studyUid;
     private String seriesNumber;
