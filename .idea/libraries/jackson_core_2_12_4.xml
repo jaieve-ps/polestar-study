@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jackson-core-2.12.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../05. 프로그램/라이브러리/jackson-core-2.12.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../05. 프로그램/라이브러리/jackson-databind-2.12.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../05. 프로그램/라이브러리/jackson-annotations-2.12.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../05. 프로그램/라이브러리/jackson-dataformat-xml-2.12.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
