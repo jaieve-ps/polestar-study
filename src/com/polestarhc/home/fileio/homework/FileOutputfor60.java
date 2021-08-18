@@ -18,7 +18,7 @@ public class FileOutputfor60 {
             LocalDateTime then = LocalDateTime.now();
             while (true) {
                 // LOGIC
-                fos.write(0);
+                fos.write(1);
                 // TIMER
                 if(ChronoUnit.MINUTES.between(then, LocalDateTime.now()) >=1) break;
             }
