@@ -20,13 +20,14 @@ public class JsonExampleInputStream {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        jsonExample.readFile("jsonTest.json");
+//        jsonExample.readFile("jsonTest.json");
+        jsonExample.readFile("fr.txt");
     }
 
     private void writeFile(String path) throws JsonProcessingException {
         // 1. 파일 생성
         File file = null;
-        file = new File("textFiles" +"/"+ path);
+        file = new File("textFiles/"+ path);
         System.out.println(file);
         if (!file.getParentFile().mkdirs()) {
             System.out.println("디렉토리 생성 성공");
@@ -61,6 +62,7 @@ public class JsonExampleInputStream {
         try {
             FileOutputStream fos = new FileOutputStream(new File("isJson.json"));
             fis = new FileInputStream(new File("textFiles/"+path));
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
             BufferedInputStream bis = new BufferedInputStream(fis);
             int data = 0;
             byte[] buf = new byte[8];
