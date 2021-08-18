@@ -15,11 +15,9 @@ public class FileReadBy1Byte {
     private void readByte(String path) throws Exception {
         FileInputStream fis = new FileInputStream("testfileForFileIO/"+path);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        int bytesize = 0;
         String string = null;
         byte[] aByte = new byte[1];
         for (int i = 0; i < 100; i++){
-            bytesize=fis.read(aByte);
             baos.write(aByte);
             byte[] byteArraytoPrint = baos.toByteArray();
             System.out.print(i+" 번째 Byte Format: "+ byteArraytoPrint.toString() + i +" 번째 Ascii Format: ");
