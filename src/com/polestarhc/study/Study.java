@@ -3,9 +3,10 @@ package com.polestarhc.study;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Study {
+public class Study implements IExcel{
     private String studyUid;
     private String seriesNumber;
     private LocalDateTime seriesDateTime;
@@ -26,8 +27,8 @@ public class Study {
     private String imageNumber;
     private String threadId;
 
-
     public Study() {
+
     }
 
     public void setThreadId(String threadId){
@@ -188,5 +189,15 @@ public class Study {
                 "patiendId='" + patiendId + '\'' +
                 ", patientName='" + patientName + '\'' +
                 '}';
+    }
+
+    @Override
+    public String getValue(String key) {
+        if("patientId".equals(key)) {
+            return getPatiendId();
+        } else if ("patientName".equals(key)){
+            return getPatientName();
+        }
+        return null;
     }
 }
