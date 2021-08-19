@@ -13,6 +13,8 @@ public class ApachePOIExcelWrite {
 
     private static final String FILE_NAME = "testfileForFileIO/MyFirstExcel.xlsx";
 
+    private String[] headers = {"PatientId","PatientName"};
+
     public static void main(String[] args) {
 
         XSSFWorkbook workbook = new XSSFWorkbook();

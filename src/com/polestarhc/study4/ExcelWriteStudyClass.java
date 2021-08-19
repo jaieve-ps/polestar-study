@@ -18,6 +18,8 @@ public class ExcelWriteStudyClass {
 
     private static final String FILE_NAME = "testfileForFileIO/StudyClassExcel.xlsx";
 
+    private static String[] headers = {"PatientId","PatientName"};
+
     public static void main(String[] args) {
         /* TODO 아파치포이 라이브러리 버전에 의한 WARNING을 버전을 바꿔서 없애보기 -> 3.15 -> 4.1 ver */
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -26,19 +28,26 @@ public class ExcelWriteStudyClass {
         String[][] studyTypes = getStudyTwoDimensionalArray();
 
         int rowNum = 0;
-        System.out.println("Creating excel");
-        for (Object[] datatype : studyTypes) {
-            Row row = sheet.createRow(rowNum++);
-            int colNum = 0;
-            for (Object field : datatype) {
-                Cell cell = row.createCell(colNum++);
-                if (field instanceof String) {
-                    cell.setCellValue((String) field);
-                } else if (field instanceof Integer) {
-                    cell.setCellValue((Integer) field);
-                }
-            }
-        }
+        Row row = sheet.createRow(rowNum++);
+        int colNum = 0;
+        Cell cell = row.createCell(colNum);
+        cell.setCellValue("나는 홍서연");
+
+
+//        int rowNum = 0;
+//        System.out.println("Creating excel");
+//        for (Object[] datatype : studyTypes) {
+//            Row row = sheet.createRow(rowNum++);
+//            int colNum = 0;
+//            for (Object field : datatype) {
+//                Cell cell = row.createCell(colNum++);
+//                if (field instanceof String) {
+//                    cell.setCellValue((String) field);
+//                } else if (field instanceof Integer) {
+//                    cell.setCellValue((Integer) field);
+//                }
+//            }
+//        }
 
         try {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
@@ -75,7 +84,6 @@ public class ExcelWriteStudyClass {
             for(int j = 0;j < studyFieldList.size();j++){
                 if(i ==0){
                     studyTypes[i][j] = studyFieldList.get(j);
-
                 } else {
                     if(j == 7){
                         studyTypes[i][j] = studyList.get(i-1).getPatiendId();
@@ -87,14 +95,14 @@ public class ExcelWriteStudyClass {
                 }
             }
         }
-        System.out.println("===========================");
-        for(String[] row:studyTypes) {
-            for(int i = 0;i < row.length;i++){
-                boolean isNull = row[i].isBlank();
-                if (!isNull) {
-                }
-            }
-        }
+//        System.out.println("===========================");
+//        for(String[] row:studyTypes) {
+//            for(int i = 0;i < row.length;i++){
+//                boolean isNull = row[i].isBlank();
+//                if (!isNull) {
+//                }
+//            }
+//        }
         return studyTypes;
     }
 }

@@ -1,11 +1,12 @@
 package com.polestarhc.study;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.polestarhc.study4.IExcel;
 
 import java.time.LocalDateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Study {
+public class Study implements IExcel {
     private String studyUid;
     private String seriesNumber;
     private LocalDateTime seriesDateTime;
@@ -188,5 +189,16 @@ public class Study {
                 "patiendId='" + patiendId + '\'' +
                 ", patientName='" + patientName + '\'' +
                 '}';
+    }
+
+    @Override
+    public String getValue(String key) {
+        // TODO 여기서 하나하나 조건문 걸어서 리턴하는게 아니라 맵에서
+        if ("patiendId".equals(key)) {
+            return this.getPatiendId();
+        } else if("patientName".equals(key)) {
+            return this.getPatientName();
+        }
+        return "XXXXX";
     }
 }
