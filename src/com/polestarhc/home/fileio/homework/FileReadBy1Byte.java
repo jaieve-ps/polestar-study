@@ -27,6 +27,7 @@ public class FileReadBy1Byte {
                 System.out.print(i + " 번째 Byte Format: " + byteArraytoPrint.toString() + i + " 번째 Ascii Format: ");
                 System.out.print((int) byteArraytoPrint[0]);
                 System.out.println(", Char Format: " + (char) byteArraytoPrint[0]);
+                // String 프린트 추가하기
                 baos.reset();
                 aByte = new byte[1];
             }

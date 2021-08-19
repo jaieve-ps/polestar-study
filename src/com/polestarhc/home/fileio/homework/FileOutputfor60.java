@@ -14,7 +14,7 @@ public class FileOutputfor60 {
     private void runForAMinute(String filename) {
         try {
             FileOutputStream fos = new FileOutputStream("testfileForFileIO/"+filename); // 파일 생성됨
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
             LocalDateTime then = LocalDateTime.now();
             while (true) {
                 // LOGIC
