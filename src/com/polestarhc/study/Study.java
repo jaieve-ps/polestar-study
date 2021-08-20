@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Study implements IExcel{
+public class Study implements IExcel, com.polestarhc.study4.IExcel {
     private String studyUid;
     private String seriesNumber;
     private LocalDateTime seriesDateTime;

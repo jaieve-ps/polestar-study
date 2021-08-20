@@ -2,7 +2,6 @@ package com.polestarhc.study4;
 
 import com.polestarhc.study.ApplicationTest;
 import com.polestarhc.study.IExcel;
-import com.polestarhc.study.Study;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -11,11 +10,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ExcelWriteHomework {
+public class ExcelWriteStudyClassHomework {
 
     private static final String FILE_NAME = "testfileForFileIO/";
     private static final String[] STUDY_HEADERS = {"patientId", "patientName"};
@@ -28,7 +25,7 @@ public class ExcelWriteHomework {
 
         List<IExcel> studyList = app.makeStudyList(); // Study 클래스
         List<IExcel> HospitalList = app.makeHospitalList(); // Hospital 클래스
-        ExcelWriteHomework excelWriteHomework = new ExcelWriteHomework();
+        ExcelWriteStudyClassHomework excelWriteHomework = new ExcelWriteStudyClassHomework();
 
         excelWriteHomework.makeExcel("StudyClassExcel.xlsx",studyList);
         excelWriteHomework.makeExcel("HospitalClassExcel.xlsx",HospitalList);
@@ -61,7 +58,7 @@ public class ExcelWriteHomework {
             Cell cell = null;
             for(int j = 0; j < METHOD_HEADER.length;j++){
                 row.createCell(colNum++).setCellValue(String.valueOf(list.get(i).getValue(METHOD_HEADER[colNum-1])));
-                System.out.println(list.get(i).getValue(METHOD_HEADER[colNum-1]));
+//                System.out.println(list.get(i).getValue(METHOD_HEADER[colNum-1]));
             }
             colNum=0;
         }

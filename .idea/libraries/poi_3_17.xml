@@ -1,8 +1,10 @@
 <component name="libraryTable">
   <library name="poi-3.17">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Documents/03. 폴스타헬스케어/00. 인텔리제이 프로젝트/라이브러리/poi-3.17.jar!/" />
-      <root url="jar://$USER_HOME$/Documents/03. 폴스타헬스케어/00. 인텔리제이 프로젝트/라이브러리/poi-ooxml-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../03. 폴스타헬스케어/00. 인텔리제이 프로젝트/라이브러리/poi-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../03. 폴스타헬스케어/00. 인텔리제이 프로젝트/라이브러리/poi-ooxml-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../05. 프로그램/라이브러리/poi-3.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../05. 프로그램/라이브러리/poi-ooxml-3.15.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
