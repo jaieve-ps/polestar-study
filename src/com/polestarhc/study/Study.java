@@ -1,12 +1,12 @@
 package com.polestarhc.study;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.polestarhc.study4.IExcel;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Study implements IExcel {
+public class Study implements IExcel{
     private String studyUid;
     private String seriesNumber;
     private LocalDateTime seriesDateTime;
@@ -27,8 +27,8 @@ public class Study implements IExcel {
     private String imageNumber;
     private String threadId;
 
-
     public Study() {
+
     }
 
     public void setThreadId(String threadId){
@@ -193,12 +193,11 @@ public class Study implements IExcel {
 
     @Override
     public String getValue(String key) {
-        // TODO 여기서 하나하나 조건문 걸어서 리턴하는게 아니라 맵에서
-        if ("patiendId".equals(key)) {
-            return this.getPatiendId();
-        } else if("patientName".equals(key)) {
-            return this.getPatientName();
+        if("patientId".equals(key)) {
+            return getPatiendId();
+        } else if ("patientName".equals(key)){
+            return getPatientName();
         }
-        return "XXXXX";
+        return null;
     }
 }
