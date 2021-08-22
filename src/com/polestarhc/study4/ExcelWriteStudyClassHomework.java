@@ -14,9 +14,9 @@ import java.util.List;
 
 public class ExcelWriteStudyClassHomework {
 
-    private static final String FILE_NAME = "testfileForFileIO/";
-    private static final String[] STUDY_HEADERS = {"patientId", "patientName"};
-    private static final String[] HOSPITAL_HEADERS = {"hospitalName", "hospitalAbbr","hospitalArea","hospitalAddress","bedCount"};
+    private final String FILE_NAME = "testfileForFileIO/";
+    private final String[] STUDY_HEADERS = {"patientId", "patientName"};
+    private final String[] HOSPITAL_HEADERS = {"hospitalName", "hospitalAbbr","hospitalArea","hospitalAddress","bedCount"};
 
     public static void main(String[] args) {
         /* TODO 아파치포이 라이브러리 버전에 의한 WARNING을 버전을 바꿔서 없애보기 -> 3.15 -> 4.1 ver */
@@ -24,12 +24,12 @@ public class ExcelWriteStudyClassHomework {
         ApplicationTest app = new ApplicationTest();
 
         List<IExcel> studyList = app.makeStudyList(); // Study 클래스
-        List<IExcel> HospitalList = app.makeHospitalList(); // Hospital 클래스
+        List<IExcel> hospitalList = app.makeHospitalList(); // Hospital 클래스
+
         ExcelWriteStudyClassHomework excelWriteHomework = new ExcelWriteStudyClassHomework();
 
-        excelWriteHomework.makeExcel("StudyClassExcel.xlsx",studyList);
-        excelWriteHomework.makeExcel("HospitalClassExcel.xlsx",HospitalList);
-
+        excelWriteHomework.makeExcel("StudyClassExcel.xlsx",studyList); // 클래스에 Map 없음
+        excelWriteHomework.makeExcel("HospitalClassExcel.xlsx",hospitalList); // 클래스에 Map 있음
     }
 
     private void makeExcel(String fileName,List<IExcel> list) {
@@ -37,7 +37,7 @@ public class ExcelWriteStudyClassHomework {
         String[] METHOD_HEADER = null;
         if (fileName.contains("Study")) {
             METHOD_HEADER = STUDY_HEADERS;
-        } else if (fileName.contains("Hospital")){
+        } else if (fileName.contains("Hospital")) {
             METHOD_HEADER = HOSPITAL_HEADERS;
         }
 
@@ -75,5 +75,4 @@ public class ExcelWriteStudyClassHomework {
 
         System.out.println("Done");
     }
-
 }

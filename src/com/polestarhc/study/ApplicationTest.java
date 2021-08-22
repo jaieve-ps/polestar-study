@@ -1,9 +1,9 @@
 package com.polestarhc.study;
 
-import com.polestarhc.home.fileio.Hospital;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ApplicationTest {
     public ApplicationTest() {
@@ -14,7 +14,7 @@ public class ApplicationTest {
 
         for (int i = 0; i < 1000; i++) {
             Study study = new Study();
-            study.setPatiendId("P"+String.valueOf(i));
+            study.setPatiendId("P" + String.valueOf(i));
             study.setPatientName("홍서연");
             studyList.add(study);
         }
@@ -43,7 +43,7 @@ public class ApplicationTest {
         List<IExcel> list = new ArrayList<IExcel>();
         for (int i = 0; i < 1000; i++) {
             Study study = new Study();
-            study.setPatiendId("P"+String.valueOf(i));
+            study.setPatiendId("P" + String.valueOf(i));
             study.setPatientName("홍서연");
             list.add(study);
         }
@@ -54,11 +54,11 @@ public class ApplicationTest {
         List<IExcel> list = new ArrayList<IExcel>();
         for (int i = 0; i < 1000; i++) {
             Hospital hospital = new Hospital();
-            hospital.setHospitalName("OO병원"+i);
-            hospital.setHospitalAbbr("OO"+i);
+            hospital.setHospitalName("OO병원" + i);
+            hospital.setHospitalAbbr("OO" + i);
             hospital.setHospitalArea("서울");
             hospital.setHospitalAddress("서울특별시 서초구");
-            hospital.setBedCount(50);
+            hospital.setBedCount(50+i);
             list.add(hospital);
         }
         return list;
