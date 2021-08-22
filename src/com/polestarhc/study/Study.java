@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.LocalDateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Study implements IExcel, com.polestarhc.study4.IExcel {
+public class Study implements IExcel{
     private String studyUid;
     private String seriesNumber;
     private LocalDateTime seriesDateTime;

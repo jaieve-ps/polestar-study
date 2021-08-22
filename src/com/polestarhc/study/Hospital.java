@@ -5,9 +5,7 @@ import java.util.Map;
 
 public class Hospital implements IExcel {
     private final Map<String, Object> map = new HashMap<>();
-    public Hospital() {
-
-    }
+    public Hospital() {}
 
     public void setHospitalName(String hospitalName) {
         this.map.put("hospitalName", hospitalName);

@@ -15,6 +15,7 @@
 
 ### Study4 (2021년 8월 19일)
 - Apache POI의 예제코드 활용하여 List<Study> 엑셀파일로 저장하는 코드 작성
+- ExcelWriteStudyClassHomework.makeExcel() 가 현재 최종 기능 구현된 것(2021년 8월 22일)
 
 ---
 ## 🏚 집(com.home.study)
@@ -26,4 +27,7 @@
 ### fileio
 - homework 패키지
 - jumpToJava 패키지
-  - 
+  - 예제코드 따라함
+- 그외 파일들 : 예제코드 따라한 코드들
+### observerScore
+- 옵저버패턴 공부하면서 따라한 예제코드들
